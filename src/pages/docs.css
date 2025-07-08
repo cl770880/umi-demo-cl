@@ -1,0 +1,272 @@
+.specialty-management {
+  /* display: flex; */
+  padding: 20px;
+}
+
+.specialty-management .header {
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.specialty-management .ant-table {
+  width: 70%;
+}
+
+.specialty-management .action-links a {
+  margin-right: 10px;
+  color: #1890ff;
+}
+
+.specialty-management .sidebar {
+  width: 25%;
+  margin-left: 5%;
+  padding: 20px;
+  background-color: #f0f2f5;
+}
+
+.specialty-management .sidebar h3 {
+  margin-bottom: 15px;
+}
+
+.specialty-management .sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.specialty-management .sidebar li {
+  margin-bottom: 10px;
+}
+
+.specialty-management .sidebar button {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.modal-content{
+  display: flex;
+  width: 100%;
+  height: 200px;
+  justify-content: center;
+  align-self: center;
+}
+
+.modal-content label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+ 
+}
+
+.modal-content input {
+  display: flex;
+  margin: auto;
+ 
+ 
+}
+
+.character-limit {
+  color: #888;
+  font-size: 12px;
+}
+
+/* 专业管理相关样式 */
+.specialty-table {
+  margin-top: 16px;
+}
+
+.teachers-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.teachers-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-height: 24px;
+}
+
+.teacher-tag {
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.teacher-tag:hover {
+  border-color: #ff4d4f;
+}
+
+.teacher-tag .delete-icon {
+  color: #ff4d4f;
+  font-size: 12px;
+}
+
+.add-teacher-btn {
+  align-self: flex-start;
+  border-style: dashed;
+  color: #1890ff;
+  border-color: #1890ff;
+}
+
+.add-teacher-btn:hover {
+  color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+/* 操作列样式 */
+.action-links {
+  display: flex;
+  align-items: center;
+}
+
+.action-links a {
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.action-links a:hover {
+  background-color: #f5f5f5;
+}
+
+/* 老师选择弹窗样式 */
+.teacher-selection-modal .ant-modal-body {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.teacher-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-section label {
+  min-width: 70px;
+  font-weight: 500;
+}
+
+.teacher-search-input {
+  flex: 1;
+}
+
+.selected-teachers-section,
+.available-teachers-section {
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.section-title {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #262626;
+}
+
+.selected-teachers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.selected-teacher-tag {
+  margin: 0;
+}
+
+.available-teachers {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.teacher-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.teacher-item:hover {
+  background-color: #f5f5f5;
+}
+
+.teacher-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.teacher-name {
+  font-weight: 500;
+  color: #262626;
+}
+
+.teacher-details {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.no-teachers-available {
+  text-align: center;
+  color: #bfbfbf;
+  padding: 20px;
+  font-style: italic;
+}
+
+.modal-tips {
+  background-color: #fff2e8;
+  border: 1px solid #ffbb96;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-top: 8px;
+}
+
+.tip-item {
+  font-size: 12px;
+  color: #fa541c;
+  line-height: 1.4;
+}
+
+/* 确认弹窗样式 */
+.ant-popconfirm .ant-popconfirm-message {
+  margin-bottom: 8px;
+}
+
+.ant-popconfirm .ant-popconfirm-description {
+  color: #8c8c8c;
+  font-size: 12px;
+}
+
+/* 响应式处理 */
+@media (max-width: 768px) {
+  .teachers-column {
+    min-width: 200px;
+  }
+  
+  .teacher-selection-modal {
+    width: 90% !important;
+  }
+  
+  .search-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .action-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
