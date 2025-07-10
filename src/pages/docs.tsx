@@ -189,7 +189,7 @@ const SpecialtyManagement: React.FC = () => {
   const columns = [
     {
       title: '序号',
-      dataIndex: 'key',
+      dataIndex:'key',
       key: 'key',
       width: 80,
     },

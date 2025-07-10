@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from 'react';
-import { Table, Select, Button, Card, Typography, Space, message } from 'antd';
+// majorRelative.tsx
+import React, { useState, useCallback, useEffect } from 'react';
+import { Table, Select, Button, Typography, Space, message } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import './index.css'; // 样式文件
 
@@ -7,7 +8,7 @@ const { Title, Text } = Typography;
 const { Option } = Select;
 
 // 关系类型定义
-type RelationType = 'related' | 'unrelated';
+type RelationType = 'L' | 'M' | 'H';
 
 // 矩阵数据项接口
 interface MatrixItem {
@@ -16,16 +17,22 @@ interface MatrixItem {
   relation: RelationType;
 }
 
-// 毕业要求数据
-interface GraduationRequirement {
-  id: string;
+// 培养目标接口
+interface TrainingGoal {
+  title: string;
+  description: string;
+}
+
+// 子能力接口
+interface SubAbility {
   name: string;
 }
 
-// 培养目标数据
-interface TrainingObjective {
-  id: string;
-  name: string;
+// 毕业能力要求接口
+interface GraduationAbility {
+  ability: string;
+  description: string;
+  subAbilities: SubAbility[];
 }
 
 // 表格行数据结构
@@ -35,46 +42,44 @@ interface TableRowData {
   [key: string]: string | RelationType; // 动态列数据
 }
 
-const MatrixTable: React.FC = () => {
-  // 毕业要求数据
-  const [graduationRequirements] = useState<GraduationRequirement[]>([
-    { id: 'req1', name: '毕业要求1XXX' },
-    { id: 'req2', name: '毕业要求2XXX' },
-    { id: 'req3', name: '毕业要求3XXX' },
-  ]);
+// 组件属性接口
+interface MatrixTableProps {
+  trainingGoals: TrainingGoal[];
+  graduationAbilities: GraduationAbility[];
+}
 
-  // 培养目标数据
-  const [trainingObjectives] = useState<TrainingObjective[]>([
-    { id: 'obj1', name: '培养目标1XXXX' },
-    { id: 'obj2', name: '培养目标2XXXX' },
-  ]);
-
+const MatrixTable: React.FC<MatrixTableProps> = ({ trainingGoals, graduationAbilities }) => {
   // 矩阵关系数据
-  const [matrixData, setMatrixData] = useState<MatrixItem[]>(() => {
-    // 初始化所有组合为"相关"
-    const initialData: MatrixItem[] = [];
-    graduationRequirements.forEach(req => {
-      trainingObjectives.forEach(obj => {
-        initialData.push({
-          rowId: req.id,
-          columnId: obj.id,
-          relation: 'related'
+  const [matrixData, setMatrixData] = useState<MatrixItem[]>([]);
+
+  // 当培养目标或毕业能力要求数据变化时，更新矩阵数据
+  useEffect(() => {
+    if (trainingGoals.length > 0 && graduationAbilities.length > 0) {
+      // 初始化所有组合为"L"级别的相关性
+      const initialData: MatrixItem[] = [];
+      graduationAbilities.forEach((req, reqIndex) => {
+        trainingGoals.forEach((obj, objIndex) => {
+          initialData.push({
+            rowId: `req${reqIndex}`,
+            columnId: `obj${objIndex}`,
+            relation: 'L'
+          });
         });
       });
-    });
-    return initialData;
-  });
+      setMatrixData(initialData);
+    }
+  }, [trainingGoals, graduationAbilities]);
 
   // 获取特定位置的关系值
   const getRelation = useCallback((rowId: string, columnId: string): RelationType => {
     const item = matrixData.find(item => item.rowId === rowId && item.columnId === columnId);
-    return item?.relation || 'related';
+    return item?.relation || 'L';
   }, [matrixData]);
 
   // 更新关系值
-  const updateRelation = useCallback((rowId: string, columnId: string, relation: RelationType) => {
+  const updateRelation = useCallback((rowid: string, columnId: string, relation: RelationType) => {
     setMatrixData(prev => prev.map(item => 
-      item.rowId === rowId && item.columnId === columnId 
+      item.rowId === rowid && item.columnId === columnId 
         ? { ...item, relation }
         : item
     ));
@@ -91,14 +96,13 @@ const MatrixTable: React.FC = () => {
         style={{ width: '100%', minWidth: 100 }}
         size="small"
       >
-        <Option value="related">
+        <Option value="L">
           <span style={{ color: '#52c41a' }}>L</span>
         </Option>
-        <Option value="unrelated">
-          <span style={{ color: '#ff4d4f' }}>M</span>
+        <Option value="M">
+          <span style={{ color: '#faad14' }}>M</span>
         </Option>
-
-        <Option value="unrelated">
+        <Option value="H">
           <span style={{ color: '#ff4d4f' }}>H</span>
         </Option>
       </Select>
@@ -111,8 +115,9 @@ const MatrixTable: React.FC = () => {
       title: '毕业能力要求',
       dataIndex: 'requirement',
       key: 'requirement',
-      width: 200,
+      width: 150,
       fixed: 'left',
+      align: 'center' as const,
       className: 'matrix-header-column',
       render: (text: string) => (
         <div className="requirement-cell">
@@ -120,32 +125,32 @@ const MatrixTable: React.FC = () => {
         </div>
       ),
     },
-    ...trainingObjectives.map(obj => ({
+    ...trainingGoals.map((obj, index) => ({
       title: (
         <div className="objective-header">
-          <Text strong>{obj.name}</Text>
+          <Text strong>{obj.title}</Text>
         </div>
       ),
-      dataIndex: obj.id,
-      key: obj.id,
+      dataIndex: `obj${index}`,
+      key: `obj${index}`,
       width: 150,
       align: 'center' as const,
       className: 'matrix-data-column',
       render: (_: any, record: TableRowData) => 
-        renderSelectCell(record.key, obj.id),
+        renderSelectCell(record.key, `obj${index}`),
     }))
   ];
 
   // 构建表格数据
-  const tableData: TableRowData[] = graduationRequirements.map(req => {
+  const tableData: TableRowData[] = graduationAbilities.map((req, index) => {
     const rowData: TableRowData = {
-      key: req.id,
-      requirement: req.name,
+      key: `req${index}`,
+      requirement: req.ability,
     };
     
     // 添加每个培养目标对应的数据
-    trainingObjectives.forEach(obj => {
-      rowData[obj.id] = getRelation(req.id, obj.id);
+    trainingGoals.forEach((obj, objIndex) => {
+      rowData[`obj${objIndex}`] = getRelation(`req${index}`, `obj${objIndex}`);
     });
     
     return rowData;
@@ -155,21 +160,38 @@ const MatrixTable: React.FC = () => {
   const handleSave = () => {
     console.log('Matrix Data:', matrixData);
     
-    // 统计相关性
-    const relatedCount = matrixData.filter(item => item.relation === 'related').length;
+    // 统计各级别相关性
+    const lCount = matrixData.filter(item => item.relation === 'L').length;
+    const mCount = matrixData.filter(item => item.relation === 'M').length;
+    const hCount = matrixData.filter(item => item.relation === 'H').length;
     const totalCount = matrixData.length;
     
-    message.success(`保存成功！共 ${totalCount} 项关系，其中 ${relatedCount} 项相关`);
+    message.success(`保存成功！共 ${totalCount} 项关系，其中 L级:${lCount}项, M级:${mCount}项, H级:${hCount}项`);
   };
 
   // 重置为默认值
   const handleReset = () => {
-    setMatrixData(prev => prev.map(item => ({ ...item, relation: 'related' as RelationType })));
-    message.info('已重置为默认关系（全部相关）');
+    setMatrixData(prev => prev.map(item => ({ ...item, relation: 'L' as RelationType })));
+    message.info('已重置为默认关系（全部为L级）');
   };
+
+  // 如果没有培养目标或毕业能力要求数据，显示提示信息
+  if (trainingGoals.length === 0 || graduationAbilities.length === 0) {
+    return (
+      <div className="matrix-container">
+        <Title level={5}>培养目标与毕业能力相关矩阵</Title>
+        <div style={{ textAlign: 'center', padding: '20px' }}>
+          <Text type="secondary">
+            请先在上方填写并保存培养目标和毕业能力要求，矩阵将自动更新
+          </Text>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="matrix-container">
+      <Title level={5}>培养目标与毕业能力相关矩阵</Title>
   
         <div className="matrix-table-wrapper">
           <Table
@@ -193,7 +215,6 @@ const MatrixTable: React.FC = () => {
             </Button>
           </Space>
         </div>
-      
     </div>
   );
 };

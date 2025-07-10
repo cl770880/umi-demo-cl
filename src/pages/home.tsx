@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Tabs, Input, Upload, Button, message, Form, Select } from 'antd';
+import { Tabs, Input, Upload, Button, message, Form, Select, Breadcrumb } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import './SpecialtyEdit/index.css';
 import CourseSection from './courseSession/index'
-import MatrixTable from './majorRelative/index'
 import { Link, Outlet } from 'umi';
 
 import SpecialtyTrainingPlan from './SpecialtyTrainingPlan'
@@ -41,8 +40,15 @@ const SpecialtyEdit: React.FC = () => {
   return (
 
     <div className="specialty-edit">
+       <Breadcrumb>
+        <Breadcrumb.Item>
+          <Link to={`/docs`} key="1">
+            智慧专业
+          </Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item key="2">专业信息</Breadcrumb.Item>
+      </Breadcrumb>
       <div className="header">
-        <Button><Link to='/docs'>返回专业列表</Link></Button>
         <Button type="primary">发布</Button>
       </div>
       <Tabs activeKey={activeTab} onChange={handleTabChange}>
@@ -68,7 +74,7 @@ const SpecialtyEdit: React.FC = () => {
             <h3>专业课程群</h3>
             <div className="semester-courses">
               <div className="semesters">
-                {[...Array(10)].map((_, index) => (
+                {[...Array(8)].map((_, index) => (
                   <Button
                     key={index + 1}
                     type={selectedSemester === (index + 1).toString() ? 'primary' : 'default'}
@@ -80,22 +86,8 @@ const SpecialtyEdit: React.FC = () => {
               </div>
               <div className="courses">
                <div style={{fontWeight:'bold'}}>第{selectedSemester}学期课程列表</div>
-                <Tabs className='TabsStyle' activeKey={activeCourseTab} onChange={handleCourseTabChange}>
-                  <TabPane tab="学科基础课" key="1">
-                    <CourseSection />
-                  </TabPane>
-                  <TabPane tab="专业必修课" key="2">
-                    <CourseSection />
-                  
 
-                  </TabPane>
-                  <TabPane tab="专业选修课" key="3">
                      <CourseSection />
-                  </TabPane>
-                  <TabPane tab="实践课" key="4">
-                     <CourseSection />
-                  </TabPane>
-                </Tabs>
               </div>
             </div>
             <div className="actions">
@@ -104,14 +96,13 @@ const SpecialtyEdit: React.FC = () => {
           </div>
         </TabPane>
         <TabPane tab="专业培养方案" key="2">
-          <SpecialtyTrainingPlan />
-            <MatrixTable/>
+          <div style={{width:'100%'}}>
+            <SpecialtyTrainingPlan />
+          </div>
+          
         </TabPane>
         <TabPane tab="专业知识图谱" key="3">
           专业知识图谱内容
-        </TabPane>
-        <TabPane tab="专业能力图谱" key="4">
-          专业能力图谱内容
         </TabPane>
       </Tabs>
     </div>

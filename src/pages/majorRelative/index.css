@@ -1,5 +1,5 @@
 .matrix-container {
-  padding: 24px;
+  
   background: #f5f5f5;
   min-height: 100vh;
 
@@ -68,7 +68,7 @@
 
 @media (max-width: 768px) {
   .matrix-container {
-    padding: 16px;
+    
   }
   
   .matrix-header {
