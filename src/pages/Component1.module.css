@@ -18,24 +18,24 @@
   	text-align: left;
 }
 .frame {
-  	width: 1314px;
-  	position: relative;
-  	border-radius: 8px;
-    margin-bottom: 33px;
-  	background: linear-gradient(90deg, #f3f9fe, #eceeff 49.04%, #e4f8fc);
-  	height: 124px;
+  width: 1314px;
+  position: relative;
+  margin-top: 20px;
+  border-radius: 8px;
+  margin-bottom: 33px;
+  background: linear-gradient(90deg, #f3f9fe, #eceeff 49.04%, #e4f8fc);
+  padding: 24px;
+  box-sizing: border-box;
 }
+
 .goalLabel {
-  	font-size: 14px;
-    margin: 20px 24px;
-    margin-top: 24px;
-  	line-height: 28px;
-  	font-family: 'PingFang SC';
-  	color: #333;
-  	text-align: left;
-  	display: flex;
-  	align-items: center;
-  	height: 84px;
+  font-size: 14px;
+  line-height: 28px;
+  font-family: 'PingFang SC';
+  color: #333;
+  text-align: left;
+  margin: 0;
+  text-indent: 2em; /* 添加首行缩进 */
 }
 .frameExtra {
   	position: absolute;
