@@ -1,104 +1,141 @@
-.classroomCard {
-  cursor: pointer;
+/* index.scss */
+.mooc-classroom-card {
   position: relative;
-  display: inline-block;
-  width: 224px;
-  height: 222px; // 简化后高度减少
-  border-radius: 8px;
   background: #fff;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-size: 0;
+  border-radius: 8px; /* 更圆的边角，从4px增加到8px */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
   overflow: hidden;
-  transition: all ease-in 0.2s;
+  width: 180px; /* 增加卡片宽度 */
+  max-width: 100%; /* 确保在小屏幕上不会溢出 */
+}
 
-  &:hover {
-    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
-  }
+.mooc-classroom-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
 
-  .cover {
-    width: 100%;
-    max-height: 126px;
-    overflow: hidden;
-    position: relative;
+.mooc-classroom-card-x {
+  display: flex;
+  height: 126px;
+  width: 400px; /* 横向卡片更宽一点 */
+  max-width: 100%;
+}
 
-    .coverImg {
-      max-width: 100%;
-      max-height: 100%;
-      border-radius: 8px 8px 0 0;
-    }
-  }
+.mooc-classroom-card-x .mooc-cover {
+  width: 225px;
+  flex-shrink: 0;
+}
 
-  .content {
-    position: relative;
-    padding: 12px;
-    box-sizing: border-box;
-    height: 96px; // 简化后高度减少
-    border-radius: 0 0 8px 8px;
-  }
+.mooc-classroom-card-x .mooc-content {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
 
-  .baseInfo {
-    height: auto;
-  }
+.mooc-cover {
+  position: relative;
+  border-top-left-radius: 8px; /* 保持与卡片一致的圆角 */
+  border-top-right-radius: 8px;
+  overflow: hidden; /* 确保图片不会溢出圆角 */
+}
 
-  .hide {
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.mooc-classroom-card-x .mooc-cover {
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 8px;
+}
 
-  .name {
-    max-height: 36px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    font-weight: bold;
-    font-family: PingFangSC-Medium, PingFangSC;
-    line-height: 18px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
+.mooc-content {
+  padding: 16px;
+}
 
-  // 学期时间样式
-  .termTime {
-    height: 12px;
-    line-height: 12px;
-    font-size: 12px;
-    margin-top: 8px;
-    color: #666;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+.mooc-base-info {
+  flex: 1;
+}
 
-  // 扩展版本样式
-  &.classroomCardX {
-    height: 272px; // 有描述时增加高度
+.mooc-name {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #333;
+}
 
-    .content {
-      height: 146px; // 有描述时增加高度
-    }
+.mooc-name-hide {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-    .baseInfo {
-      height: auto;
-    }
+.mooc-school {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
 
-    .description {
-      padding: 8px;
-      font-size: 12px;
-      color: #999;
-      height: 50px;
-      line-height: 17px;
-      margin-top: 12px;
-      background: #f8f9fb;
-      border-radius: 8px;
-      box-sizing: border-box;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-    }
-  }
+.mooc-teachers {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.mooc-ft {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.mooc-classroom-stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap; /* 允许在窄屏上换行 */
+}
+
+.mooc-count {
+  font-size: 12px;
+  color: #666;
+}
+
+.mooc-count-fl {
+  float: left;
+  margin-right: 8px;
+}
+
+.mooc-progress {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.mooc-progress-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.mooc-progress-active {
+  color: #52c41a;
+}
+
+.mooc-progress-ended {
+  color: #999;
+}
+
+.mooc-progress-upcoming {
+  color: #faad14;
+}
+
+.mooc-description {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }

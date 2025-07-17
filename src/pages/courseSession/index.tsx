@@ -1,13 +1,9 @@
-
-/**
- * 
- */
-
 import React, { useState } from 'react';
-import { Button, Empty, Card } from 'antd';
+import { Button, Empty } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
-import ClassroomCard from '../classroomCard/index'
+// import ClassroomCard from '../classroomCard/index';
+import ClassRoomCard from '../roomCard/index';
 import './index.css';
 
 interface Course {
@@ -22,15 +18,27 @@ interface Course {
     image: string;
 }
 
-interface classroomCard{
+interface classroomCard {
+  classroomId: number,
   classroomName: string,
   courseName: string,
-  cover: string,
-  originalSizeCover: string,
-  termStartTime: string,
-  termEndTime: string,
-  detailUrl: string
+  courseLectorName: string,
+  coverPhoto: string,
+  schoolName: string,
+  schoolId: number,
+  currentTermId: number,
+  termStartTime: number,
+  termEndTime: number,
+  classroomCount: number,
+  participantCount: number,
+  topTags: string[],
+  termProgress: {
+    class: string,
+    icon: string,
+    text: string
+  }
 };
+
 
 
 const CourseSection: React.FC = () => {
@@ -40,34 +48,45 @@ const CourseSection: React.FC = () => {
     const addCourse = () => {
         const newCourse: Course = {
             id: Date.now().toString(),
-            title: '心理学：我知无不言，它妙不可言',
+            title: '心理学：我知无',
             subtitle: '认知学习',
             school: '华中师范大学',
             teacher: '田媛',
             status: 'ongoing',
             week: 12,
             participants: 9489,
-            image: 'https://img-blog.csdnimg.cn/img_convert/1ae9a4cfc235e04b3eaef65e17d2c5f2.jpeg',
+            image: 'https://edu-image.nosdn.127.net/FE60E8703D71E540BC5BA850E7FF895C.jpg',
         };
         setCourses([...courses, newCourse]);
     };
 
     const addClassroom = () => {
-        const newClassroom: classroomCard = {
-            classroomName: "Java程序设计课堂",
-            courseName: "Java程序设计",
-            cover: "https://img-blog.csdnimg.cn/img_convert/1ae9a4cfc235e04b3eaef65e17d2c5f2.jpeg",
-            originalSizeCover: "https://img-blog.csdnimg.cn/img_convert/1ae9a4cfc235e04b3eaef65e17d2c5f2.jpeg",
-            termStartTime: "2024-02-01",
-            termEndTime: "2024-06-30",
-            detailUrl: "/classroom/12345"
-        };
+    const newClassroom: classroomCard = {
+    classroomId: 1,
+    classroomName: "环境工程微生物学课堂dedgeudueyydueydgec黄毒蛾有很多也",
+    courseName: "环境工程微生物学",
+    courseLectorName: "吴林江",
+    coverPhoto: "https://img-blog.csdnimg.cn/img_convert/1ae9a4cfc235e04b3eaef65e17d2c5f2.jpeg",
+    schoolName: "青岛建筑科技大学",
+    schoolId: 123,
+    currentTermId: 456,
+    termStartTime: 1640995200000,
+    termEndTime: 1672531200000,
+    classroomCount: 3,
+    participantCount: 152,
+    topTags: ["国家精品"],
+    termProgress: {
+      class: "going",
+      icon: "/icons/going.png",
+      text: "进行中"
+    }
+  };
         setClassrooms([...classrooms, newClassroom]);
     };
 
     const renderCourseCard = (course: Course) => (
         <div className="course-card">
-            <div className="card-image" style={{ backgroundImage: `url(${course.image})` }}>
+            <div className="card-image" style={{ backgroundImage: `url(${course.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="card-tag">{course.subtitle}</div>
             </div>
             <div className="card-content">
@@ -82,10 +101,6 @@ const CourseSection: React.FC = () => {
                     <p className="participants">{course.participants}人参加</p>
                 </div>
             </div>
-            <div className="card-actions">
-                <Button>删除</Button>
-                <Button>设置前后序</Button>
-            </div>
         </div>
     );
 
@@ -93,7 +108,7 @@ const CourseSection: React.FC = () => {
         <div className="course-section">
             <div className="course-list">
                 <h2>课程</h2>
-                <Button icon={<PlusOutlined />} onClick={addCourse}>添加课程</Button>
+                <Button style={{marginBottom: 10}} icon={<PlusOutlined />} onClick={addCourse}>添加课程</Button>
                 {courses.length === 0 ? (
                     <Empty description="暂无课程" />
                 ) : (
@@ -104,12 +119,12 @@ const CourseSection: React.FC = () => {
             </div>
             <div className="classroom-list">
                 <h2>课堂</h2>
-                <Button icon={<PlusOutlined />} onClick={addClassroom}>添加课堂</Button>
+                <Button style={{marginBottom: 10}} icon={<PlusOutlined />} onClick={addClassroom}>添加课堂</Button>
                 {classrooms.length === 0 ? (
                     <Empty description="暂无课堂" />
                 ) : (
                     <div className="card-list">
-                        {classrooms.map(classroom=>(<ClassroomCard classroom={classroom} style={{width: '100px', margin: '16px'}}/>))}
+                        {classrooms.map(classroom=>(<ClassRoomCard classroom={classroom} />))}
                     </div>
                 )}
             </div>

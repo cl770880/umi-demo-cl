@@ -1,6 +1,6 @@
 // majorRelative.tsx
 import React, { useState, useCallback, useEffect } from 'react';
-import { Table, Select, Button, Typography, Space, message } from 'antd';
+import { Table, Select, Button, Typography, Space, message , Empty} from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import './index.css'; // 样式文件
 
@@ -182,7 +182,7 @@ const MatrixTable: React.FC<MatrixTableProps> = ({ trainingGoals, graduationAbil
         <Title level={5}>培养目标与毕业能力相关矩阵</Title>
         <div style={{ textAlign: 'center', padding: '20px' }}>
           <Text type="secondary">
-            请先在上方填写并保存培养目标和毕业能力要求，矩阵将自动更新
+            <Empty description='暂无数据'></Empty>
           </Text>
         </div>
       </div>

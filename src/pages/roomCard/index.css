@@ -1,0 +1,118 @@
+.course-card {
+  width: 240px;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.card-image {
+  height: 135px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.card-tag {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.card-content {
+  padding: 12px;
+}
+
+.card-content h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-content p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.card-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+}
+
+.status-icon {
+  width: 8px;
+  height: 8px;
+  background-color: #52c41a;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.card-actions button {
+  font-size: 12px;
+  padding: 0 12px;
+}
+
+.empty-state {
+  margin-top: 20px;
+  text-align: center;
+  color: #999;
+}
+
+.course-list{
+    margin-top: 0px;
+}
+/* 添加到 index.css */
+.classroom-detail-modal .ant-modal-body {
+  padding: 24px;
+}
+
+.classroom-info-item {
+  padding: 12px 0;
+}
+
+.classroom-info-item .info-row {
+  display: flex;
+  align-items: center;
+}
+
+.classroom-info-item .ant-typography {
+  margin-bottom: 4px;
+}
+
+.course-card {
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+.modal-description {
+  font-size: 12px;
+  text-align: right;
+  margin-top: 16px;
+}
