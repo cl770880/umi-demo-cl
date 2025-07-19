@@ -1,26 +1,33 @@
+/* 容器样式 */
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin-left: 63px;
+  box-sizing: border-box;
+}
+
+/* 标题样式 */
 .labels {
-  	width: 120px;
-  	position: relative;
-  	font-size: 20px;
-  	font-weight: 600;
-  	font-family: 'PingFang SC';
-  	color: #333;
-  	text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'PingFang SC';
+  color: #333;
+  text-align: left;
+  margin-bottom: 31px;
 }
-.traingoal{
-  	width: 72px;
-  	position: relative;
-  	font-size: 18px;
-  	font-weight: 600;
-  	font-family: 'PingFang SC';
-    margin-top: 31px;
-  	color: #333;
-  	text-align: left;
+
+.traingoal {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'PingFang SC';
+  color: #333;
+  text-align: left;
+  margin-bottom: 20px;
 }
+
+/* 培养目标框 */
 .frame {
-  width: 1314px;
-  position: relative;
-  margin-top: 20px;
+  width: 100%;
   border-radius: 8px;
   margin-bottom: 33px;
   background: linear-gradient(90deg, #f3f9fe, #eceeff 49.04%, #e4f8fc);
@@ -35,151 +42,162 @@
   color: #333;
   text-align: left;
   margin: 0;
-  text-indent: 2em; /* 添加首行缩进 */
 }
-.frameExtra {
-  	position: absolute;
-  	height: 100%;
-  	width: 100%;
-  	top: 0px;
-  	right: 0px;
-  	bottom: 0px;
-  	left: 0px;
-  	border-radius: 12px;
-  	border: 1px solid rgba(0, 0, 0, 0.1);
-  	box-sizing: border-box;
-}
-.frameExtratext1 {
-  	position: absolute;
-  	height: 100%;
-  	width: 100%;
-  	top: 0px;
-  	right: 0px;
-  	bottom: 0px;
-  	left: 0px;
-  	border-radius: 12px 12px 0px 0px;
-  	background: linear-gradient(90deg, rgba(105, 217, 217, 0.2), rgba(105, 217, 217, 0));
-}
-.labels1 {
-  	position: absolute;
-  	top: calc(50% - 12px);
-  	left: 19px;
-  	line-height: 24px;
-  	font-weight: 600;
-}
-.frameExtratext {
-  	position: absolute;
-  	top: 1px;
-  	left: calc(50% - 210px);
-  	width: 420px;
-  	height: 48px;
-  	overflow: hidden;
-}
-.p {
-  	margin-block-start: 0;
-  	margin-block-end: 12px;
-}
-.p3 {
-  	margin: 0;
-}
-.labelsTxt {
-  	line-break: anywhere;
-  	width: 100%;
-}
-.labels2 {
-  	position: absolute;
-  	top: calc(50% - 116px);
-  	left: 17px;
-  	font-size: 14px;
-  	line-height: 24px;
-  	display: flex;
-  	align-items: center;
-  	width: 386px;
-}
-.component306Child {
-  	width: 100%;
-  	position: absolute;
-  	margin: 0 !important;
-  	height: 100%;
-  	top: 0%;
-  	right: 0%;
-  	bottom: 0%;
-  	left: 0%;
-  	border-radius: 99px;
-  	background-color: rgba(0, 204, 126, 0.1);
-  	z-index: 0;
-}
-.labelsMoveToParent {
-  	position: relative;
-  	line-height: 20px;
-  	z-index: 1;
-}
-.component306 {
-  	position: absolute;
-  	top: 314px;
-  	left: 18px;
-  	height: 28px;
-  	display: flex;
-  	flex-direction: row;
-  	align-items: center;
-  	justify-content: flex-start;
-  	padding: 4px 16px;
-  	box-sizing: border-box;
-  	gap: 10px;
-  	font-size: 12px;
-  	color: #6b7280;
-}
-.frameExtraParent {
-  	width: 422px;
-  	position: relative;
-  	height: 362px;
-  	text-align: left;
-    margin-right: 20px;
-  	font-size: 16px;
-    margin-top: 20px;
-  	color: #333;
-  	font-family: 'PingFang SC';
+/* 能力卡片组件css样式 */
+.cardsContainer {
+  display: flex;
+  gap: 24px;
+  margin: 20px 0;
+  flex-wrap: wrap;
 }
 
-.graduation {
-  	width: 72px;
-  	position: relative;
-    margin-top: 50px;
-  	font-size: 18px;
-  	font-weight: 600;
-  	font-family: 'PingFang SC';
-  	color: #333;
-  	text-align: left;
-  	display: inline-block;
+.abilityCard {
+  flex: 1;
+  min-width: 300px;
+  min-height: 362px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: 'PingFang SC', sans-serif;
+  font-size: 16px;
+  color: #333;
+  overflow: hidden;
 }
-/* 毕业要求组件样式 */
+
+.cardHeader {
+  height: 48px;
+  background: linear-gradient(90deg, rgba(105, 217, 217, 0.2), rgba(105, 217, 217, 0));
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 12px;
+  color: #333;
+}
+
+.cardContent {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+}
+
+.contentText {
+  font-size: 14px;
+  line-height: 24px;
+  color: #333;
+}
+
+.paragraph {
+  margin: 0 0 12px 0;
+}
+
+.paragraphLast {
+  margin: 0;
+}
+
+.cardFooter {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.tagBadge {
+  height: 28px;
+  padding: 4px 16px;
+  border-radius: 99px;
+  background-color: rgba(0, 204, 126, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tagText {
+  font-size: 12px;
+  line-height: 20px;
+  color: #6b7280;
+}
+
+/* 响应式适配 */
+@media (min-width: 768px) {
+  .abilityCard {
+    width: calc((100% - 48px) / 3); /* 三个卡片平分宽度 */
+    flex: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .abilityCard {
+    width: calc((100% - 24px) / 2); /* 三个卡片平分宽度 */
+    flex: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .abilityCard {
+    width: calc((100% - 20px) / 2); /* 两个卡片平分宽度 */
+    flex: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .abilityCard {
+    width: 100%; /* 单列显示 */
+    flex: none;
+  }
+}
+
+/* 毕业要求部分 */
+.graduation {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'PingFang SC';
+  color: #333;
+  text-align: left;
+  margin: 50px 0 17px 0;
+}
+
 .graduationRequirements {
   display: flex;
   gap: 20px;
   width: 100%;
   font-family: 'PingFang SC';
+  align-items:flex-start;
+  /* min-height: 400px; */
+  margin-bottom: 20px;
 }
 
-/* 左侧菜单区域 */
 .sideMenu {
   width: 200px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .menuButton {
-  height: 40px !important; /* 按钮高度设置为40px */
+  height: 40px !important;
   text-align: left !important;
   margin-bottom: 8px;
-  margin-right: 24px;
   padding: 0 16px !important;
   border: 1px solid #d9d9d9 !important;
-  border-radius: 8px !important; /* 边框圆角设置为8px */
+  border-radius: 8px !important;
   background: #ffffff !important;
   color: #333333 !important;
   box-shadow: none !important;
   font-weight: normal !important;
+  width: 100%;
 }
 
 .menuButton.active {
@@ -192,15 +210,16 @@
   color: #00cc7e !important;
 }
 
-/* 右侧内容区域 */
 .contentContainer {
-  
+  flex: 1;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 24px;
   background-color: #ffffff;
-  width: 1090px;
-
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .contentHeader {
@@ -208,6 +227,9 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  gap: 10px;
 }
 
 .contentTitle {
@@ -222,10 +244,12 @@
   background: #ffffff;
   height: 32px;
   padding: 0 15px;
+  flex-shrink: 0;
 }
 
 .contentBody {
   color: #333;
+  flex: 1;
 }
 
 .mainDescription {
@@ -234,14 +258,15 @@
   font-size: 14px;
 }
 
-  .requirementItems p {
+.requirementItems p {
   margin-bottom: 12px;
   line-height: 1.6;
   font-size: 14px;
 }
 
 .contentFooter {
-  margin-top: 108px;
+  margin-top: 28px;
+  flex-shrink: 0;
 }
 
 .tagButton {
@@ -250,6 +275,7 @@
   border-radius: 16px;
   padding: 5px 15px;
   margin-right: 10px;
+  margin-bottom: 10px;
   color: #333;
   font-size: 13px;
   cursor: pointer;
@@ -258,24 +284,24 @@
 .tagButton:hover {
   background-color: rgba(0, 204, 126, 0.2);
 }
-.abilityGoalRel {
-  	width: 198px;
-    margin-top: 58px;
-  	position: relative;
-  	font-size: 18px;
-  	font-weight: 600;
-  	font-family: 'PingFang SC';
-  	color: #333;
-  	text-align: left;
-  	display: inline-block;
+
+/* 矩阵表格标题 */
+.abilityGoalRel,
+.courseAbilityRel {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'PingFang SC';
+  color: #333;
+  text-align: left;
+  margin: 58px 0 22px 0;
 }
 
 /* 矩阵表格样式 */
 .matrixContainer {
   width: 100%;
-  max-width: 1313px;
   margin: 20px 0;
   font-family: 'PingFang SC', sans-serif;
+  overflow-x: auto;
 }
 
 .matrixTable :global(.ant-table-thead > tr > th) {
@@ -286,6 +312,7 @@
   color: #333;
   height: 41px;
   padding: 8px;
+  white-space: nowrap;
 }
 
 .matrixTable :global(.ant-table-tbody > tr > td) {
@@ -293,7 +320,14 @@
   height: 41px;
 }
 
-/* 行间隔背景色 */
+.courseMatrixTable :global(.ant-table-thead > tr > th) {
+  background-color: #DFF0FF !important;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #d9d9d9;
+  white-space: nowrap;
+}
+
 .evenRow {
   background-color: white;
 }
@@ -302,14 +336,12 @@
   background-color: #f9fafb;
 }
 
-/* 第一列样式 */
 .requirementCell {
   padding-left: 8px;
   line-height: 24px;
   font-size: 14px;
 }
 
-/* 标题样式 */
 .headerRequirement {
   display: flex;
   justify-content: center;
@@ -321,13 +353,11 @@
   font-weight: 600;
 }
 
-/* 勾选图标样式 */
 .checkIcon {
   color: #00cc7e;
   font-size: 16px;
 }
 
-/* 带标签的单元格 */
 .cellWithTag {
   position: relative;
   width: 100%;
@@ -337,7 +367,6 @@
   align-items: center;
 }
 
-/* 标签样式 */
 .tag {
   position: absolute;
   top: 0;
@@ -348,7 +377,7 @@
   border-radius: 4px;
 }
 
-/* 底部边框圆角 */
+/* 表格圆角 */
 .matrixTable :global(.ant-table-container table > tbody > tr:last-child > td:first-child) {
   border-bottom-left-radius: 8px;
 }
@@ -357,7 +386,6 @@
   border-bottom-right-radius: 8px;
 }
 
-/* 顶部边框圆角 */
 .matrixTable :global(.ant-table-container table > thead > tr:first-child > th:first-child) {
   border-top-left-radius: 8px;
 }
@@ -366,22 +394,44 @@
   border-top-right-radius: 8px;
 }
 
-/* 课程与毕业能力相关性矩阵css样式 */
-.courseAbilityRel{
-width: 198px;
-margin-top: 58px;
-margin-bottom: 22px;
-position: relative;
-font-size: 18px;
-font-weight: 600;
-font-family: 'PingFang SC';
-color: #333;
-text-align: left;
-display: inline-block;
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .cardsContainer {
+    flex-direction: column;
+  }
+  
+  .frameExtraParent {
+    min-width: 100%;
+  }
+  
+  
+  .sideMenu {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .menuButton {
+    flex: 1;
+    min-width: 120px;
+  }
 }
-.courseMatrixTable :global(.ant-table-thead > tr > th) {
-  background-color: #DFF0FF !important;
-  font-weight: 600;
-  text-align: center;
-  border: 1px solid #d9d9d9;
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .contentHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .sideMenu {
+    flex-direction: column;
+  }
+  
+  .menuButton {
+    margin-right: 0;
+  }
 }

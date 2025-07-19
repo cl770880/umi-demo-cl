@@ -11,7 +11,7 @@ const ContentPage: React.FC = () => {
   const [selectedRequirement, setSelectedRequirement] = useState('1');
   const [isEditModalVisible, setIsEditModalVisible] = useState(false);
   const [form] = Form.useForm();
-  
+
   // 定义毕业要求数据
   const requirementItems = [
     { id: '1', name: '工程知识' },
@@ -23,7 +23,7 @@ const ContentPage: React.FC = () => {
     { id: '7', name: '环境和可持续发展' },
     { id: '8', name: '职业规范' },
   ];
-  
+
   // 当前选中项的内容
   const [contentMap, setContentMap] = useState({
     '1': {
@@ -43,32 +43,32 @@ const ContentPage: React.FC = () => {
         '2.3 能够通过文献研究和调查，建立软件工程问题的分析模型并获得有效结论。'
       ]
     },
-    '3': { 
+    '3': {
       description: '能够设计针对复杂工程问题的解决方案，设计满足特定需求的系统、单元或工艺流程，并能够在设计环节中体现创新意识，考虑社会、健康、安全、法律、文化以及环境等因素',
-      details: ['3.1 能够设计满足特定需求的软件系统或组件，包括用户界面、数据结构、算法等。', '3.2 在设计过程中能够考虑社会、安全、法律、文化等多方面因素。'] 
+      details: ['3.1 能够设计满足特定需求的软件系统或组件，包括用户界面、数据结构、算法等。', '3.2 在设计过程中能够考虑社会、安全、法律、文化等多方面因素。']
     },
-    '4': { 
+    '4': {
       description: '能够基于科学原理并采用科学方法对电子信息领域的复杂工程问题进行研究，包括设计实验、分析与解释数据、并通过信息综合得到合理有效的结论',
-      details: ['4.1 能够设计并执行实验方案，分析和解释实验数据。', '4.2 能够通过数据分析得出有效结论。'] 
+      details: ['4.1 能够设计并执行实验方案，分析和解释实验数据。', '4.2 能够通过数据分析得出有效结论。']
     },
-    '5': { 
+    '5': {
       description: '能够针对电子信息领域的复杂工程问题，开发、选择与使用恰当的技术、资源、现代工程工具和信息技术工具，包括对电子信息领域复杂工程问题的预测与模拟，并能够理解其局限性',
-      details: ['5.1 能够选择和使用合适的开发工具和框架进行软件开发。', '5.2 能够理解各种技术工具的适用场景和局限性。'] 
+      details: ['5.1 能够选择和使用合适的开发工具和框架进行软件开发。', '5.2 能够理解各种技术工具的适用场景和局限性。']
     },
-    '6': { 
+    '6': {
       description: '能够基于工程相关背景知识进行合理分析，评价电子信息专业工程实践和复杂工程问题解决方案对社会、健康、安全、法律以及文化的影响，并理解应承担的责任',
-      details: ['6.1 了解软件工程实践对社会、健康、安全的影响。', '6.2 理解软件工程师的职业责任和道德规范。'] 
+      details: ['6.1 了解软件工程实践对社会、健康、安全的影响。', '6.2 理解软件工程师的职业责任和道德规范。']
     },
-    '7': { 
+    '7': {
       description: '能够理解和评价针对电子信息领域复杂工程问题的工程实践对环境、社会可持续发展的影响',
-      details: ['7.1 了解软件系统在环境保护和可持续发展中的作用。', '7.2 能够设计环保节能的软件系统。'] 
+      details: ['7.1 了解软件系统在环境保护和可持续发展中的作用。', '7.2 能够设计环保节能的软件系统。']
     },
-    '8': { 
+    '8': {
       description: '具有人文社会科学素养、社会责任感，能够在工程实践中理解并遵守工程职业道德和规范，履行责任',
-      details: ['8.1 具有良好的职业道德和规范意识。', '8.2 能够在团队合作中履行自己的责任。'] 
+      details: ['8.1 具有良好的职业道德和规范意识。', '8.2 能够在团队合作中履行自己的责任。']
     },
   });
-  
+
   const handleRequirementClick = (id: string) => {
     setSelectedRequirement(id);
   };
@@ -95,7 +95,7 @@ const ContentPage: React.FC = () => {
         description: values.description,
         details: values.details.split('\n').filter(item => item.trim() !== '')
       };
-      
+
       setContentMap(newContentMap);
       setIsEditModalVisible(false);
       message.success('保存成功');
@@ -112,10 +112,10 @@ const ContentPage: React.FC = () => {
     { key: '6', id: '6', name: '工程与社会', goal1: false, goal2: false, goal3: false, goal4: true },
     { key: '7', id: '7', name: '环境与可持续发展', goal1: false, goal2: false, goal3: false, goal4: true, tagColor: '#ff5454' },
     { key: '8', id: '8', name: '职业规范', goal1: false, goal2: false, goal3: false, goal4: true },
-    { key: '9', id: '9', name: '个人和团队', goal1: false, goal2: false, goal3: false, goal4: true },
-    { key: '10', id: '10', name: '沟通能力', goal1: false, goal2: false, goal3: false, goal4: true },
-    { key: '11', id: '11', name: '项目管理', goal1: false, goal2: true, goal3: false, goal4: false },
-    { key: '12', id: '12', name: '终身学习', goal1: false, goal2: false, goal3: false, goal4: true },
+    // { key: '9', id: '9', name: '个人和团队', goal1: false, goal2: false, goal3: false, goal4: true },
+    // { key: '10', id: '10', name: '沟通能力', goal1: false, goal2: false, goal3: false, goal4: true },
+    // { key: '11', id: '11', name: '项目管理', goal1: false, goal2: true, goal3: false, goal4: false },
+    // { key: '12', id: '12', name: '终身学习', goal1: false, goal2: false, goal3: false, goal4: true },
   ];
 
   // 课程体系与毕业要求矩阵数据
@@ -132,10 +132,10 @@ const ContentPage: React.FC = () => {
     { key: '10', name: '大学英语(读写、听说)', req1: false, req2: false, req3: false, req4: false, req5: false, req6: false, req7: false, req8: false, req9: false, req10: true, req11: false, req12: false },
     { key: '11', name: '程序设计基础(C)', req1: true, req2: false, req3: false, req4: true, req5: false, req6: false, req7: false, req8: false, req9: false, req10: false, req11: false, req12: false },
     { key: '12', name: '大学物理', req1: false, req2: false, req3: false, req4: false, req5: false, req6: false, req7: false, req8: false, req9: true, req10: true, req11: false, req12: false },
-    { key: '13', name: '大学心理健康课', req1: false, req2: false, req3: false, req4: false, req5: false, req6: false, req7: false, req8: false, req9: true, req10: false, req11: false, req12: false },
-    { key: '14', name: '专业毕业与训练', req1: false, req2: false, req3: false, req4: false, req5: false, req6: false, req7: false, req8: false, req9: false, req10: false, req11: true, req12: false },
-    { key: '15', name: '工程数学', req1: true, req2: false, req3: false, req4: false, req5: false, req6: false, req7: false, req8: false, req9: false, req10: false, req11: false, req12: true },
-    { key: '16', name: '工程概率与统计', req1: false, req2: false, req3: false, req4: false, req5: false, req6: false, req7: false, req8: false, req9: false, req10: false, req11: true, req12: true }
+    // { key: '13', name: '大学心理健康课', req1: false, req2: false, req3: false, req4: false, req5: false, req6: false, req7: false, req8: false, req9: true, req10: false, req11: false, req12: false },
+    // { key: '14', name: '专业毕业与训练', req1: false, req2: false, req3: false, req4: false, req5: false, req6: false, req7: false, req8: false, req9: false, req10: false, req11: true, req12: false },
+    // { key: '15', name: '工程数学', req1: true, req2: false, req3: false, req4: false, req5: false, req6: false, req7: false, req8: false, req9: false, req10: false, req11: false, req12: true },
+    // { key: '16', name: '工程概率与统计', req1: false, req2: false, req3: false, req4: false, req5: false, req6: false, req7: false, req8: false, req9: false, req10: false, req11: true, req12: true }
   ];
 
   // 渲染带有标签的单元格
@@ -145,8 +145,8 @@ const ContentPage: React.FC = () => {
       return (
         <div className={styles.cellWithTag}>
           {value && <CheckOutlined className={styles.checkIcon} />}
-          <div 
-            className={styles.tag} 
+          <div
+            className={styles.tag}
             style={{ backgroundColor: record.tagColor || '#ff9559' }}
           >
             {record.tagNumber}
@@ -159,8 +159,8 @@ const ContentPage: React.FC = () => {
       return (
         <div className={styles.cellWithTag}>
           {value && <CheckOutlined className={styles.checkIcon} />}
-          <div 
-            className={styles.tag} 
+          <div
+            className={styles.tag}
             style={{ backgroundColor: record.tagColor || '#ff5454' }}
           >
             {record.tagNumber}
@@ -339,33 +339,40 @@ const ContentPage: React.FC = () => {
   ];
 
   return (
-    <div style={{width:'1440px'}}>
+    <div className={styles.container}>
       <div className={styles.labels}>人才培养方案</div>
       <div className={styles.traingoal}>培养目标</div>
       <div className={styles.frame} >
         <div className={styles.goalLabel}>本专业旨在培养具有社会主义核心价值观，基于创新性和专业文化培养与继承意识，具有社会责任感，公民意识，国际视野和创新精神，掌握扎实的专业知识基本理论与技能，熟悉国际信息技术发展趋势，了解我国信息产业发展需求，具有良好的团队协作精神，具备参与复杂工程问题分析与解决的初步能力，勇于创新，团结协作，创业型人才，本专业毕业生适合在政府、科研机构、企业和各类组织中从事软件开发、系统分析、项目管理等工作，以及继续攻读相关专业。</div>
       </div>
 
-      <div style={{display: 'flex'}}>
-        {[1,2,3].map((index)=>{
+      <div className={styles.cardsContainer}>
+        {[1, 2, 3].map((index) => {
           return (
-            <div className={styles.frameExtraParent} key={index}>
-              <div className={styles.frameExtra} />
-              <div className={styles.frameExtratext}>
-                <div className={styles.frameExtratext1} />
-                <div className={styles.labels1}>知识要求</div>
+            <div className={styles.abilityCard} key={index}>
+              <div className={styles.cardHeader}>
+                <h3 className={styles.cardTitle}>知识要求</h3>
               </div>
-              <div className={styles.labels2}>
-                <span className={styles.labelsTxt}>
-                  <p className={styles.p}>具备以下基础知识和专业知识：</p>
-                  <p className={styles.p}>（1）掌握数学和自然科学基本原理，以及相关的人文社会科学知识，能够在工程实践中应用。</p>
-                  <p className={styles.p}>（2）掌握计算机科学与技术的基本理论、基本知识和基本技能，以及软件工程专业的基本理论、基本知识和基本技能，以及相关的专业知识。</p>
-                  <p className={styles.p3}>（3）掌握软件需求分析、软件设计、软件测试、软件维护等软件工程基本方法，以及软件项目管理的基本知识。</p>
-                </span>
+
+              <div className={styles.cardContent}>
+                <div className={styles.contentText}>
+                  <p className={styles.paragraph}>具备以下基础知识和专业知识：</p>
+                  <p className={styles.paragraph}>
+                    （1）掌握数学和自然科学基本原理，以及相关的人文社会科学知识，能够在工程实践中应用。
+                  </p>
+                  <p className={styles.paragraph}>
+                    （2）掌握计算机科学与技术的基本理论、基本知识和基本技能，以及软件工程专业的基本理论、基本知识和基本技能，以及相关的专业知识。
+                  </p>
+                  <p className={styles.paragraphLast}>
+                    （3）掌握软件需求分析、软件设计、软件测试、软件维护等软件工程基本方法，以及软件项目管理的基本知识。
+                  </p>
+                </div>
               </div>
-              <div className={styles.component306}>
-                <div className={styles.component306Child} />
-                <div className={styles.labelsMoveToParent}>关联3个毕业要求</div>
+
+              <div className={styles.cardFooter}>
+                <div className={styles.tagBadge}>
+                  <span className={styles.tagText}>关联3个毕业要求</span>
+                </div>
               </div>
             </div>
           )
@@ -373,7 +380,7 @@ const ContentPage: React.FC = () => {
       </div>
 
       <div className={styles.graduation}>毕业要求</div>
-      <div style={{marginTop:'17px'}}>
+      <div style={{ marginTop: '17px' }}>
         {/* 毕业要求组件 */}
         <div className={styles.graduationRequirements}>
           {/* 左侧菜单按钮 */}
@@ -447,12 +454,12 @@ const ContentPage: React.FC = () => {
       </div>
 
       <div className={styles.abilityGoalRel}>毕业要求与培养目标矩阵</div>
-      
+
       {/* 添加毕业要求与培养目标矩阵表格 */}
       <div className={styles.matrixContainer}>
-        <Table 
-          columns={matrixColumns} 
-          dataSource={matrixData} 
+        <Table
+          columns={matrixColumns}
+          dataSource={matrixData}
           pagination={false}
           bordered
           className={styles.matrixTable}
@@ -465,9 +472,9 @@ const ContentPage: React.FC = () => {
 
       {/* 课程体系与毕业要求矩阵表格 */}
       <div className={styles.matrixContainer}>
-        <Table 
-          columns={courseMatrixColumns} 
-          dataSource={courseMatrixData} 
+        <Table
+          columns={courseMatrixColumns}
+          dataSource={courseMatrixData}
           pagination={false}
           bordered
           className={styles.courseMatrixTable}
