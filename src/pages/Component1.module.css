@@ -1,6 +1,7 @@
 /* 容器样式 */
 .container {
   max-width: 1440px;
+  min-width: 700px;
   width: 100%;
   margin-left: 63px;
   box-sizing: border-box;
@@ -43,12 +44,14 @@
   text-align: left;
   margin: 0;
 }
-/* 能力卡片组件css样式 */
+
+/* 能力卡片组件css样式  */
 .cardsContainer {
   display: flex;
   gap: 24px;
   margin: 20px 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; 
+  
 }
 
 .abilityCard {
@@ -64,6 +67,7 @@
   font-size: 16px;
   color: #333;
   overflow: hidden;
+  flex-shrink: 0; /* 防止卡片被压缩 */
 }
 
 .cardHeader {
@@ -87,7 +91,6 @@
   flex: 1;
   padding: 20px;
   display: flex;
-  overflow-y: auto;
   flex-direction: column;
 }
 
@@ -129,35 +132,6 @@
   color: #6b7280;
 }
 
-/* 响应式适配 */
-@media (min-width: 768px) {
-  .abilityCard {
-    width: calc((100% - 48px) / 3); /* 三个卡片平分宽度 */
-    flex: none;
-  }
-}
-
-@media (max-width: 1200px) {
-  .abilityCard {
-    width: calc((100% - 24px) / 2); /* 三个卡片平分宽度 */
-    flex: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .abilityCard {
-    width: calc((100% - 20px) / 2); /* 两个卡片平分宽度 */
-    flex: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .abilityCard {
-    width: 100%; /* 单列显示 */
-    flex: none;
-  }
-}
-
 /* 毕业要求部分 */
 .graduation {
   font-size: 18px;
@@ -173,17 +147,39 @@
   gap: 20px;
   width: 100%;
   font-family: 'PingFang SC';
-  align-items:flex-start;
-  /* min-height: 400px; */
+  align-items: flex-start;
   margin-bottom: 20px;
 }
 
 .sideMenu {
   width: 200px;
+  height: 400px;
   flex-shrink: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   gap: 8px;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: none;
+  scrollbar-color: #c1c1c1 transparent;
+}
+
+/* 自定义滚动条样式 (Webkit) */
+.sideMenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sideMenu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sideMenu::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 3px;
+}
+
+.sideMenu::-webkit-scrollbar-thumb:hover {
+  background-color: #a8a8a8;
 }
 
 .menuButton {
@@ -198,6 +194,10 @@
   box-shadow: none !important;
   font-weight: normal !important;
   width: 100%;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .menuButton.active {
@@ -218,6 +218,7 @@
   background-color: #ffffff;
   min-width: 0;
   display: flex;
+  min-height: 400px;
   flex-direction: column;
   height: 100%;
 }
@@ -250,6 +251,7 @@
 .contentBody {
   color: #333;
   flex: 1;
+  overflow-y: auto;
 }
 
 .mainDescription {
@@ -313,7 +315,17 @@
   height: 41px;
   padding: 8px;
   white-space: nowrap;
+  
 }
+/* .matrixTable :global(.ant-table-thead) {
+  position: relative;
+}
+.matrixTable :global(.ant-table-thead)::after {
+  content: '';
+  display: block;
+  height: 12px;
+  background-color: transparent;
+} */
 
 .matrixTable :global(.ant-table-tbody > tr > td) {
   padding: 8px;
@@ -326,8 +338,17 @@
   text-align: center;
   border: 1px solid #d9d9d9;
   white-space: nowrap;
+  border-bottom: 12px solid transparent !important;
 }
-
+/* .courseMatrixTable :global(.ant-table-thead) {
+  position: relative;
+}
+.courseMatrixTable :global(.ant-table-thead)::after {
+  content: '';
+  display: block;
+  height: 12px;
+  background-color: transparent;
+} */
 .evenRow {
   background-color: white;
 }
@@ -392,46 +413,4 @@
 
 .matrixTable :global(.ant-table-container table > thead > tr:first-child > th:last-child) {
   border-top-right-radius: 8px;
-}
-
-/* 响应式设计 */
-@media (max-width: 1200px) {
-  .cardsContainer {
-    flex-direction: column;
-  }
-  
-  .frameExtraParent {
-    min-width: 100%;
-  }
-  
-  
-  .sideMenu {
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .menuButton {
-    flex: 1;
-    min-width: 120px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 10px;
-  }
-  
-  .contentHeader {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .sideMenu {
-    flex-direction: column;
-  }
-  
-  .menuButton {
-    margin-right: 0;
-  }
 }
