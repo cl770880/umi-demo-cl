@@ -1,0 +1,18 @@
+.statusItem {
+  display: flex;
+  align-items: center;
+
+  .unfinished {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  span {
+    font-size: 14px;
+    color: #333333;
+    line-height: 16px;
+    margin-left: 6px;
+  }
+}

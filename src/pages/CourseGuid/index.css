@@ -1,0 +1,188 @@
+/* 页面整体容器 */
+.courseGuideCard {
+  width: 357px;
+  height: 400px;
+  border-radius: 12px;
+  background: #f8f9fb;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  .title {
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+  }
+
+  .statusContainerStyle {
+    margin-top: 17px;
+    /* 让状态容器占据剩余空间，将按钮推到底部 */
+    flex: 1;
+  }
+
+  .statusContainer {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: #FFF;
+    height: 44px;
+    padding: 0px 16px;
+  }
+
+  .goButton {
+    color: #00CC7E;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    cursor: pointer;
+  }
+
+  /* 按钮容器 - 新增样式 */
+  .buttonContainer {
+    /* 向右对齐按钮 */
+    text-align: right;
+
+  }
+
+  .button {
+    display: inline-flex;
+    width: 112px;
+    height: 40px;
+    padding: 8px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 6px;
+    background: #00CC7E !important;
+
+    /* 添加hover效果 */
+  }
+}
+
+
+.courseGuidePage {
+  /* display: flex; */
+  padding: 24px;
+
+  .guideCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 21px;
+
+  }
+
+  .quickCopyHear {
+    margin-bottom: 64px;
+  }
+
+  .quickCopyDesc {
+    color: #989898;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+  }
+
+  .quickCopyTitle {
+    color: #000;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 22px
+  }
+
+  :global(.ant-btn).copyResourceButton {
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  background: #00CC7E;
+  margin-right: 16px;
+  height: 40px;
+  border: none;
+}
+
+:global(.ant-btn).copyResourceButton:hover {
+  background: #00b370 !important;
+  border-color: #00b370 !important;
+}
+
+}
+
+/* 弹窗样式 */
+.modalDescription {
+  color: #999;
+  font-size: 14px;
+  margin: 0 0 20px 0;
+}
+
+.modalContent {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formItem {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+}
+
+/* 进度条样式 */
+.progressContainer {
+  width: 100%;
+}
+
+.progressText {
+  display: block;
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.progressPercent {
+  display: block;
+  text-align: right;
+  margin-top: 8px;
+  color: #00CC7E;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 按钮样式 */
+.cancelButton {
+  margin-right: 8px !important;
+}
+
+.confirmButton {
+  background-color: #00CC7E !important;
+  border-color: #00CC7E !important;
+}
+
+/* 中断确认弹窗 */
+.warningIcon {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.interruptMessage {
+  color: #333;
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+}

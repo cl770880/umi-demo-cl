@@ -1,0 +1,26 @@
+import React from 'react';
+import s from './index.css';
+
+interface IStatusItemProps {
+  text: string;
+  isOk: boolean;
+}
+
+const StatusItem: React.FC<IStatusItemProps> = props => {
+  const { text, isOk } = props;
+  return (
+    <div className={s.statusItem}>
+      {isOk ? (
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8.00016 14.6667C9.8411 14.6667 11.5078 13.9205 12.7142 12.7141C13.9206 11.5076 14.6668 9.84097 14.6668 8.00004C14.6668 6.15911 13.9206 4.49244 12.7142 3.28599C11.5078 2.07957 9.8411 1.33337 8.00016 1.33337C6.15923 1.33337 4.49256 2.07957 3.28612 3.28599C2.07969 4.49244 1.3335 6.15911 1.3335 8.00004C1.3335 9.84097 2.07969 11.5076 3.28612 12.7141C4.49256 13.9205 6.15923 14.6667 8.00016 14.6667Z" fill="#00CC7E" stroke="#00CC7E" stroke-width="1.33333" stroke-linejoin="round" />
+          <path d="M5.3335 8L7.3335 10L11.3335 6" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      ) : (
+        <div className={s.unfinished}></div>
+      )}
+      <span>{text}</span>
+    </div>
+  );
+};
+
+export default StatusItem;

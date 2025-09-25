@@ -9,6 +9,8 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "antd": "^5.27.3",
+    "dayjs": "^1.11.18",
     "umi": "^4.4.11"
   },
   "devDependencies": {

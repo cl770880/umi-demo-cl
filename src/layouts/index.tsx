@@ -15,6 +15,15 @@ export default function Layout() {
           <Link to="/home">Home</Link>
         </li>
         <li>
+          <Link to="/table">Table</Link>
+        </li>
+        <li>
+          <Link to="/courseGuide">课程引导页</Link>
+        </li>
+        <li>
+          <Link to="/studentManager">学生管理</Link>
+        </li>
+        <li>
           <a href="https://github.com/umijs/umi">Github</a>
         </li>
       </ul>
