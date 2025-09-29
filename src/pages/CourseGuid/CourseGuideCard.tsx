@@ -1,61 +1,67 @@
-import React, { useState } from 'react';
-import StatusItem from './statusItem';
-import s from './index.css';
+import React from 'react';
 import { Button } from 'antd';
+import StatusItem from './statusItem';
+import { CourseGuideCardProps, GuideItem } from './types';
+import s from './index.css';
 
-// 定义状态项属性接口
-interface StatusItemProps {
-  text: string;
-  isOk: boolean;
-  pageUrl: string;
-}
-
-// 定义课程引导卡片属性接口
-interface CourseGuideCardProps {
-  title: string;
-  statusItem: StatusItemProps[];
-  showButton?: boolean;
-}
-
-const CourseGuideCard: React.FC<CourseGuideCardProps> = (props) => {
-  const { title, statusItem, showButton } = props;
-  // 修正state的初始类型，避免使用null（除非有特殊需求）
-  const [state, setState] = useState<unknown>(null);
+const CourseGuideCard: React.FC<CourseGuideCardProps> = ({
+  title,
+  items,
+  showMainButton = false,
+  mainButtonText = '课堂上课',
+  onMainButtonClick,
+  className = ''
+}) => {
   
-  // 修复事件处理函数，避免立即执行
   const handleGoUrl = (pageUrl: string) => {
-    // 使用箭头函数包裹，防止页面加载时就执行
     return () => {
-      location.href = pageUrl;
+      window.location.href = pageUrl;
     };
   };
 
+  const renderItem = (item: GuideItem) => {
+    if (item.type === 'title') {
+      return (
+        <div key={item.id} className={s.sectionTitle}>
+          {item.title}
+        </div>
+      );
+    }
+    
+    if (item.type === 'status') {
+      return (
+        <div key={item.id} className={s.statusContainer}>
+          <StatusItem text={item.text!} isOk={item.isOk!} />
+          {item.showButton && item.pageUrl && (
+            <span 
+              onClick={handleGoUrl(item.pageUrl)} 
+              className={s.goButton}
+            >
+              {item.buttonText || '去设置'}
+            </span>
+          )}
+        </div>
+      );
+    }
+    
+    return null;
+  };
+
   return (
-    <div className={s.courseGuideCard}>
+    <div className={`${s.courseGuideCard} ${className}`}>
       <span className={s.title}>{title}</span>
       <div className={s.statusContainerStyle}>
-        {/* 修复map循环缺少返回值和key的问题 */}
-        {statusItem.map((item, index) => {
-          const { text, isOk, pageUrl } = item;
-          // 添加return语句，确保组件被返回
-          return (
-            // 为循环项添加唯一key
-            <div key={index} className={s.statusContainer}>
-              <StatusItem text={text} isOk={isOk} />
-              {/* 修复事件绑定方式，使用handleGoUrl返回的函数 */}
-              <span 
-                onClick={handleGoUrl(pageUrl)} 
-                className={s.goButton}
-              >
-                {showButton ? '去设置'  : '去录入'}
-              </span>
-            </div>
-          );
-        })}
+        {items.map(renderItem)}
       </div>
-      {showButton && (
+      {showMainButton && (
         <div className={s.buttonContainer}>
-          <Button type="primary" className={s.button}>课堂上课</Button>
+          <Button 
+            type="primary" 
+            className={s.button}
+            onClick={onMainButtonClick}
+          >
+            {mainButtonText}
+          </Button>
         </div>
       )}
     </div>
@@ -63,4 +69,3 @@ const CourseGuideCard: React.FC<CourseGuideCardProps> = (props) => {
 };
 
 export default CourseGuideCard;
-    

@@ -540,6 +540,8 @@ const StudentManagement: React.FC<Props> = ({ classId }) => {
               ) : (
                 <>
                   <Button 
+                  type='primary'
+                  className="addButton"
                     onClick={() => setNewGroupModalVisible(true)}
                   >
                     新建小组

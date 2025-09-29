@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal, Select, Progress, message } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import CourseGuideCard from './CourseGuideCard';
+import { GuideItem } from './types';
 import s from './index.css';
 
 const { Option } = Select;
@@ -26,23 +27,87 @@ const CourseGuidePage: React.FC = () => {
   const hasHistoryTerm = true;
   const hasSourceData = true;
 
-  // 卡片数据
-  const teachingResourceList = [
-    { text: '课件', isOk: true, pageUrl: '#' },
-    { text: '作业', isOk: true, pageUrl: '#' },
-    { text: '讨论', isOk: false, pageUrl: '#' },
+ // 第一张卡片数据
+  const card1Data: GuideItem[] = [
+    {
+      id: '1',
+      type: 'status',
+      text: '课件',
+      isOk: false,
+      pageUrl: '/courseware',
+      showButton: true,
+      buttonText: '去录入'
+    },
+    {
+      id: '2',
+      type: 'status',
+      text: '作业',
+      isOk: true,
+      pageUrl: '/homework',
+      showButton: true,
+      buttonText: '去录入'
+    },
+    {
+      id: '3',
+      type: 'status',
+      text: '讨论',
+      isOk: true,
+      pageUrl: '/discussion',
+      showButton: true,
+      buttonText: '去录入'
+    }
   ];
 
-  const newContentList = [
-    { text: '数字教学课件', isOk: true, pageUrl: '#' },
-    { text: '课程资源库', isOk: true, pageUrl: '#' },
-    { text: '数字教材', isOk: true, pageUrl: '#' },
+  // 第二张卡片数据
+  const card2Data: GuideItem[] = [
+    {
+      id: '1',
+      type: 'status',
+      text: '数字教学课件',
+      isOk: false,
+      showButton: false
+    },
+    {
+      id: '2',
+      type: 'status',
+      text: '课程图谱',
+      pageUrl: '/course-map',
+      isOk: true,
+      showButton: true,
+      buttonText: '去录入'
+    },
+    {
+      id: '3',
+      type: 'status',
+      text: 'AI助教',
+      isOk: true,
+      showButton: false
+    },
+    
   ];
 
-  const classManagementList = [
-    { text: '班级管理和学生导入', isOk: true, pageUrl: '#' },
-    { text: '班级评分设置', isOk: false, pageUrl: '#' },
+  // 第三张卡片数据
+  const card3Data: GuideItem[] = [
+    {
+      id: '1',
+      type: 'status',
+      text: '班级管理和学生导入',
+      isOk: false,
+      pageUrl: '/class-management',
+      showButton: true,
+      buttonText: '去设置'
+    },
+    {
+      id: '2',
+      type: 'status',
+      text: '班级评分设置',
+      isOk: true,
+      pageUrl: '/grade-settings',
+      showButton: true,
+      buttonText: '去设置'
+    }
   ];
+
 
   // 处理课堂上课点击
   const handleClassroomClick = () => {
@@ -270,21 +335,23 @@ const CourseGuidePage: React.FC = () => {
         {/* 卡片1：课程教学资源准备 */}
         <CourseGuideCard
           title="1. 课程教学资源准备"
-          statusItem={teachingResourceList}
+          items={card1Data}
         />
 
         {/* 卡片2：新形态教学内容服务制作 */}
         <CourseGuideCard
           title="2. 新形态教学内容服务制作"
-          statusItem={newContentList}
+          items={card2Data}
         />
 
         {/* 卡片3：班级学生管理和班级设置（含底部按钮） */}
-        <CourseGuideCard
-          title="3. 班级学生管理和班级设置"
-          statusItem={classManagementList}
-          showButton={true}
-        />
+       <CourseGuideCard
+        title="3.班级学生管理和班级设置"
+        items={card3Data}
+        showMainButton={true}
+        mainButtonText="课堂上课"
+        onMainButtonClick={handleClassroomClick}
+      />
       </div>
 
       {/* 主复制弹窗 */}

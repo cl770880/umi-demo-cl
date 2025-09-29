@@ -268,3 +268,11 @@
 .modal-content label input[type="radio"]:disabled {
   cursor: not-allowed;
 }
+
+.addButton{
+  padding: 6px 16px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 6px;
+  background: #00CC7E ;
+}
