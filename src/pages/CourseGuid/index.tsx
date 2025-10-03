@@ -83,6 +83,19 @@ const CourseGuidePage: React.FC = () => {
       isOk: true,
       showButton: false
     },
+    {
+      id: '4',
+      type: 'title',
+      title: '课堂管理',
+    },
+    {
+      id: '5',
+      type: 'status',
+      text: '课堂管理',
+      isOk: true,
+      pageUrl: '/class-management',
+      showButton: true,
+    }
     
   ];
 
