@@ -86,16 +86,23 @@ const CourseGuidePage: React.FC = () => {
     {
       id: '4',
       type: 'title',
-      title: '课堂管理',
+      title: '其他教学资源关联',
     },
     {
       id: '5',
       type: 'status',
-      text: '课堂管理',
+      text: '线上学期',
       isOk: true,
       pageUrl: '/class-management',
-      showButton: true,
-    }
+      showButton: false,
+    },
+    {
+      id: '6',
+      type: 'status',
+      text: '数字教材',
+      isOk: true,
+      showButton: false,
+    },
     
   ];
 
@@ -184,7 +191,6 @@ const CourseGuidePage: React.FC = () => {
     modal.confirm({
       title: '确认中断复制',
       icon: <ExclamationCircleOutlined />,
-      content: '确定要中断当前的复制操作吗？',
       okText: '确定',
       cancelText: '取消',
       onOk: confirmInterrupt,
@@ -316,14 +322,13 @@ const CourseGuidePage: React.FC = () => {
             <Button 
               type="primary" 
               className={s.copyResourceButton} 
-              onClick={openCopyResourceModal}
             >
               从教学资源库导入
             </Button>
           )}
           {hasHistoryTerm && (
-            <Button style={{ height: 40, borderRadius: 6 }}>
-              复制历史学期
+            <Button style={{ height: 40, borderRadius: 6 }} onClick={openCopyResourceModal}>
+              导入慕课堂资源
             </Button>
           )}
         </div>
@@ -343,6 +348,8 @@ const CourseGuidePage: React.FC = () => {
   return (
     <div className={s.courseGuidePage}>
       {FastCopyCourseResource()}
+
+      <div className={s.guideTitle}>开课引导</div>
 
       <div className={s.guideCardContainer}>
         {/* 卡片1：课程教学资源准备 */}

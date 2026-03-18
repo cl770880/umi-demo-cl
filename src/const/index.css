@@ -1,0 +1,178 @@
+.rectangle-parent {
+  	width: 100%;
+  	position: relative;
+  	height: 206px;
+  	overflow: hidden;
+  	text-align: left;
+  	font-size: 14px;
+  	color: #333;
+  	font-family: 'PingFang SC';
+    background: #999;
+}
+.frame-child {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 16px;
+  	background-color: #fff;
+  	width: 1161px;
+  	height: 206px;
+}
+.parent {
+  	position: absolute;
+  	top: 77px;
+  	left: 321px;
+  	width: 221px;
+  	height: 40px;
+  	color: #000;
+}
+.div {
+  	position: absolute;
+  	top: 1px;
+  	left: 53px;
+  	font-weight: 600;
+}
+.rectangle-div {
+  	position: absolute;
+  	top: 22px;
+  	left: 53px;
+  	font-size: 12px;
+  	color: #999;
+}
+.group-child {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 8px;
+  	background-color: rgba(33, 166, 255, 0.1);
+  	width: 40px;
+  	height: 40px;
+}
+.group-item {
+  	position: absolute;
+  	top: 10px;
+  	left: 10px;
+  	width: 20px;
+  	height: 20px;
+}
+.aippt-parent {
+  	position: absolute;
+  	top: 77px;
+  	left: 24px;
+  	width: 220px;
+  	height: 40px;
+  	color: #000;
+}
+.aippt {
+  	position: absolute;
+  	top: 0px;
+  	left: 53px;
+  	font-weight: 600;
+}
+.group-inner {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 8px;
+  	background-color: rgba(255, 110, 110, 0.1);
+  	width: 40px;
+  	height: 40px;
+}
+.powerpoint-icon {
+  	position: absolute;
+  	top: 8px;
+  	left: 8px;
+  	width: 24px;
+  	height: 24px;
+}
+.ai {
+  	position: absolute;
+  	top: 24px;
+  	left: 24px;
+  	font-size: 18px;
+  	font-weight: 600;
+}
+.ai-parent {
+  	position: absolute;
+  	top: 77px;
+  	left: 619px;
+  	width: 221px;
+  	height: 40px;
+}
+.rectangle-ai {
+  	position: absolute;
+  	top: 1px;
+  	left: 54px;
+  	font-weight: 600;
+}
+.rectangle-group-child {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 8px;
+  	background-color: #f3e8ff;
+  	width: 40px;
+  	height: 40px;
+}
+.ai-group {
+  	position: absolute;
+  	top: 139px;
+  	left: 24px;
+  	width: 221px;
+  	height: 42px;
+}
+.group-child2 {
+  	position: absolute;
+  	top: 2px;
+  	left: 0px;
+  	border-radius: 8px;
+  	background-color: rgba(49, 222, 63, 0.1);
+  	width: 40px;
+  	height: 40px;
+}
+.translate-icon {
+  	position: absolute;
+  	top: 10px;
+  	left: 8px;
+  	width: 24px;
+  	height: 24px;
+}
+.ai-container {
+  	position: absolute;
+  	top: 77px;
+  	left: 917px;
+  	width: 221px;
+  	height: 40px;
+}
+.group-child3 {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 8px;
+  	background-color: #e9ebff;
+  	width: 40px;
+  	height: 40px;
+}
+.ocr-parent {
+  	position: absolute;
+  	top: 139px;
+  	left: 321px;
+  	width: 221px;
+  	height: 42px;
+}
+.ocr {
+  	position: absolute;
+  	top: 0px;
+  	left: 54px;
+  	font-weight: 600;
+}
+.group-child4 {
+  	position: absolute;
+  	top: 2px;
+  	left: 0px;
+  	border-radius: 8px;
+  	background-color: rgba(0, 222, 200, 0.1);
+  	width: 40px;
+  	height: 40px;
+}
+

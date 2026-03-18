@@ -9,16 +9,18 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "@ant-design/pro-components": "^2.8.10",
     "antd": "^5.27.3",
     "dayjs": "^1.11.18",
     "umi": "^4.4.11",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@stagewise/toolbar": "^0.6.3",
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
-    "mooc-packaged-components": "git+https://oauth2:qpwsppkUQGanFuPeHGLx@git.corp.youdao.com/edu-mooc/textbook/mooc-packaged-components.git#publish",
     "husky": "^9.1.7",
+    "mooc-packaged-components": "git+https://oauth2:qpwsppkUQGanFuPeHGLx@git.corp.youdao.com/edu-mooc/textbook/mooc-packaged-components.git#publish",
     "typescript": "^5.0.3"
   }
 }

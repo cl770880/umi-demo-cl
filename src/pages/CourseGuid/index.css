@@ -1,7 +1,7 @@
 /* 页面整体容器 */
 .courseGuideCard {
   width: 357px;
-  height: 355px;
+  height: 375px;
   border-radius: 12px;
   background: #f8f9fb;
   padding: 20px;
@@ -64,16 +64,26 @@
     /* 添加hover效果 */
   }
 }
+ .guideTitle{
+    margin-bottom: 24px;
+    color:  #333;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
 
 
 .courseGuidePage {
   /* display: flex; */
   padding: 24px;
 
+ 
+
   .guideCardContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 21px;
+    gap: 16px;
 
   }
 

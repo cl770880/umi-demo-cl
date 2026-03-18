@@ -1,0 +1,123 @@
+.order-management-container {
+  padding: 24px;
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.total-amount {
+  font-size: 16px;
+  color: #595959;
+}
+
+.total-amount .amount {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1890ff;
+  margin-left: 8px;
+}
+
+/* ProTable 容器样式 */
+.order-management-container .ant-pro-table {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+/* 自定义工具栏样式 */
+.custom-toolbar {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+/* 表格单元格样式 */
+.order-management-container .ant-table-cell {
+  padding: 12px 16px;
+}
+
+/* 表格头部样式 */
+.order-management-container .ant-table-thead > tr > th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #262626;
+}
+
+/* 分页样式 */
+.order-management-container .ant-pagination {
+  margin-top: 16px;
+  text-align: right;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .order-management-container {
+    padding: 12px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .custom-toolbar {
+    padding: 12px;
+  }
+
+  .custom-toolbar .ant-space {
+    width: 100%;
+  }
+
+  .custom-toolbar .ant-space-item {
+    width: 100%;
+  }
+
+  .custom-toolbar .ant-input,
+  .custom-toolbar .ant-picker {
+    width: 100% !important;
+  }
+}
+
+.filter-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.left-section{
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.page-title{
+  font-size: 24px;
+  font-weight: 600;
+  color: #262626;
+
+  
+}
+.total-amount{
+    font-size: 22px;
+    color: #0073FF;
+  }
