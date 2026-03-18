@@ -16,6 +16,7 @@ const GitTest: React.FC<GitTestProps> = (props) => {
     <div>
       GitTest component
       <div>这是一个测试组件</div>
+      <h1>hahhah</h1>
     </div>
   );
 };
